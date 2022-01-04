@@ -12,22 +12,23 @@ exports.handler = async function (event, context) {
       external_id: eventBody.external_id,
     },
   })
-    .then((response) => {
-      let product = response.data.product;
+  .then((response) => {
+    let product = response.data.product;
 
-      return axios({
-        url: `https://judge.me/api/v1/reviews/`,
-        method: "GET",
-        data: {
-          shop_domain: "shopd4.myshopify.com",
-          api_token: "yxHawPYN3RFOtzH7W_dkgSeVJP4",
-          product_id: product.id,
-        },
-      });
-    })
-    .then((response) => {
-      return response.data.reviews;
+    return axios({
+      url: `https://judge.me/api/v1/reviews/`,
+      method: "GET",
+      data: {
+        shop_domain: "shopd4.myshopify.com",
+        api_token: "yxHawPYN3RFOtzH7W_dkgSeVJP4",
+        product_id: product.id,
+        per_page: eventBody.per_page,
+      },
     });
+  })
+  .then((response) => {
+    return response.data.reviews;
+  });
 
   return {
     statusCode: 200,
