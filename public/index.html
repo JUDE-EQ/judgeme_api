@@ -7,28 +7,6 @@
     <title>Judgeme API Integration w/ Netlify</title>
   </head>
   <body>
-    <p id="response-output">Data fecthing...</p>
-    <script>
-      window.addEventListener('load', function() {
-        const responseText = document.getElementById('response-output')
-
-        fetch('/.netlify/functions/judgeme-api', {
-          method: "POST",
-          headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            external_id: 6596622221398,
-            per_page: 20,
-          })
-        }).then((response) => {
-          return response.json()
-        }).then((data) => {
-          console.log(data);
-          responseText.innerText = "Sucess: Data has been fetched!!!"
-        })
-      })
-    </script>
+    <h3>Nothing to see here...</h3>
   </body>
 </html>
