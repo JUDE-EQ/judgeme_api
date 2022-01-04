@@ -7,15 +7,12 @@
     <title>Judgeme API Integration w/ Netlify</title>
   </head>
   <body>
-    <pre>
-      <code id="response-output"></code>
-    </pre>
+    <p id="response-output"></p>
     <script>
       window.addEventListener('load', function() {
-        // response(productID, perPage);
         const responseText = document.getElementById('response-output')
 
-        fetch('/.netlify/functions/judgeme-api-integration', {
+        fetch('/.netlify/functions/judgeme-api', {
           method: "POST",
           headers : { 
             'Content-Type': 'application/json',
