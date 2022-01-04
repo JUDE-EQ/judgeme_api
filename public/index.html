@@ -7,7 +7,7 @@
     <title>Judgeme API Integration w/ Netlify</title>
   </head>
   <body>
-    <p id="response-output"></p>
+    <p id="response-output">Data fecthing...</p>
     <script>
       window.addEventListener('load', function() {
         const responseText = document.getElementById('response-output')
@@ -26,7 +26,7 @@
           return response.json()
         }).then((data) => {
           console.log(data);
-          responseText.innerText = JSON.stringify(data)
+          responseText.innerText = "Sucess: Data has been fetched!!!"
         })
       })
     </script>
