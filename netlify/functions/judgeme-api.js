@@ -7,8 +7,8 @@ exports.handler = async function (event, context) {
     url: `https://judge.me/api/v1/products/${eventBody.external_id}`,
     method: "GET",
     data: {
-      shop_domain: "shopd4.myshopify.com",
-      api_token: "yxHawPYN3RFOtzH7W_dkgSeVJP4",
+        shop_domain: process.env.SHOP_DOMAIN,
+        api_token: process.env.API_TOKEN,
       external_id: eventBody.external_id,
     },
   })
@@ -19,8 +19,8 @@ exports.handler = async function (event, context) {
       url: `https://judge.me/api/v1/reviews/`,
       method: "GET",
       data: {
-        shop_domain: "shopd4.myshopify.com",
-        api_token: "yxHawPYN3RFOtzH7W_dkgSeVJP4",
+        shop_domain: process.env.SHOP_DOMAIN,
+        api_token: process.env.API_TOKEN,
         product_id: product.id,
         per_page: eventBody.per_page,
       },
