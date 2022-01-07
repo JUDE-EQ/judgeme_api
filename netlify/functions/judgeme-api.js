@@ -2,7 +2,7 @@ const axios = require("axios");
 
 exports.handler = async function (event, context) {
   const eventBody = JSON.parse(event.body);
-
+  console.log(eventBody);
   const data = await axios({
     url: `https://judge.me/api/v1/products/${eventBody.external_id}`,
     method: "GET",
@@ -23,7 +23,7 @@ exports.handler = async function (event, context) {
         api_token: process.env.API_TOKEN,
         product_id: product.id,
         per_page: eventBody.per_page,
-        rating: eventBody.rating,
+        rating: eventBody.ratings,
       },
     });
   })
