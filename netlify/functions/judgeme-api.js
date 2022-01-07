@@ -23,6 +23,7 @@ exports.handler = async function (event, context) {
         api_token: process.env.API_TOKEN,
         product_id: product.id,
         per_page: eventBody.per_page,
+        rating: eventBody.rating,
       },
     });
   })
